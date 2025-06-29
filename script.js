@@ -16,3 +16,10 @@ const navMenu = document.getElementById('nav-menu')
 hamburger.addEventListener('click', () => {
   navMenu.classList.toggle('show')
 })
+
+// Fecha o menu ao clicar em qualquer item
+document.querySelectorAll('.link-menu').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('show');
+  });
+});
