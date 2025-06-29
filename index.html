@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuri Simões | Portfólio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Efeito visual das partículas da página, puxando do arquivo styles.css -->
+  <div class="particles"></div>
+  
+  <!-- Menu de navegação com âncoras internas, 
+  evitando múltiplas páginas html para manter o projeto mais eficiente e enxuto -->
+  <nav class="navigation">
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    
+    <ul class="menu" id="nav-menu">
+      <li>
+        <a href="#start" class="link-menu">Início</a>
+      </li>
+      <li>
+        <a href="#aboutme" class="link-menu">Sobre mim</a>
+      </li>
+      <li>
+        <a href="#academic" class="link-menu">Formação</a>
+      </li>
+      <li>
+        <a href="#portfolio" class="link-menu">Portfólio</a>
+      </li>
+      <li>
+        <a href="#contact" class="link-menu">Contato</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <!-- Seção inicial do portfólio, com foto e area de atuação, já com espaço para posteriormente adicionar as 
+  hardskills adquiridas na faculdade e cursos dentro de uma div -->
+  <main id="start" class="header">
+    <img src="./img/photo-yuri.jpg" alt="Foto de Yuri Simões" class="profile-photo">
+    <h1>Yuri Simões</h1>
+    <p class="header-subtitle">Desenvolvedor Front-end</p>
+  </main>
+  
+  <!-- Seção "Sobre mim" com uma breve apresentação pessoal -->
+  <section id="aboutme" class="aboutme">
+    <h2 class="about-title">Sobre mim</h2>
+    <div class="about-box">
+      <p class="about-text">Desenvolvedor Fullstack com foco em Frontend e Mobile. Venho desenvolvendo habilidades em programação e aprimorando meus conhecimentos há algum tempo, combinando teoria e prática para construir uma base sólida.<br><br>
+      
+      Com alguns anos de experiência nas áreas de Telecom e Logística, adquiri competências em organização, resolução de problemas e trabalho em equipe. Agora, estou empenhado para aplicar essas habilidades em minha transição de carreira para a área de tecnologia.</p>
+    </div>
+  </section>
+  
+  <!-- Seção "Formação acadêmica" com o nome do curso em andamento e nível de conhecimento em idiomas. Posteriormente 
+  poderei adicionar também alguns cursos que eu venha a fazer -->
+  <section id="academic" class="academic">
+    <h2 class="academic-title">Formação acadêmica</h2>
+    <div class="academic-box">
+      <p class="academic-text">Cursando Análise e Desenvolvimento de Sistemas na UNINTER - Centro Universitário Internacional</p>
+      <br>
+      <p class="languages-text">Inglês - Intermediário</p>
+    </div>
+  </section>
+  
+  <!-- Seção "Portfólio" para apresentação de projetos pessoais ou de curso desenvolvidos, 
+  já com responsividade aplicada para quando adicionar novos projetos -->
+  <section id="portfolio" class="portfolio">
+    <h2 class="portfolio-title">Portfólio</h2>
+    <div class="portfolio-box">
+      
+      <div class="project-card" onclick="window.open('https://github.com/yurisimoess/tecnologica-blog', '_blank');">
+        <img src="./img/TecnoLogica.png" alt="Projeto TecnoLógica - Blog" class="project-image" href="">
+        <div class="box-text-project">
+          <h3 class="project-info">Blog TecnoLógica</h3>
+          <p class="project-text">Projeto desenvolvido na disciplina de Ferramentas de Desenvolvimento Web no Curso de Análise e Desenvolvimento de Sistemas da UNINTER.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Formulário para contato (Apenas visual) -  envio de email não implementado 
+  por restrições do projeto quanto a uso de backend ou bibliotecas externas -->
+  <section id="contact" class="contact">
+    <h2 class="contact-title">Entre em Contato</h2>
+    <form class="contact-form" id="form" method="POST">
+      <div class="form-group">
+        <input type="text" placeholder="Nome" class="form-field" id="name" required>
+      </div>
+      
+      <div class="form-group">
+        <input type="email" placeholder="Email" class="form-field" required id="email">
+      </div>
+      
+      <div class="form-group">
+        <textarea class="form-field" placeholder="Digite sua mensagem..." id="message" rows="6" required></textarea>
+      </div>
+      
+      <button type="submit" class="form-button">Enviar Email</button>
+    </form>
+  </section>
+  
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+/* Apenas para zerar a estilização da página */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Rolagem do mouse suave para a navegação por âncoras */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variáveis reutilizáveis de paletas de cores */
+:root {
+  --primary: #4f46e5;
+  --secondary: #7c3aed;
+  --dark: #0f172a;
+  --moreDark: #0a0f1c;
+  --bright: #e2e8f0;
+  --glass: rgba(255,255,255,0.1)
+}
+
+/* Estilização base do corpo do projeto */
+body {
+  background-color: var(--dark);
+  color: var(--bright);
+}
+
+/* Barra de navegação fixa no topo e com leve transparência */
+.navigation {
+  position: fixed;
+  top: 0;
+  background-color: rgba(15,23,42,0.8);
+  width: 100%;
+  z-index: 100;
+  padding: 1.5rem;
+}
+
+/* Menu de navegação horizontal e centralizado */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  justify-content: center;
+}
+
+/* Estilo dos links do menu */
+.link-menu {
+  text-decoration: none;
+  color: var(--bright);
+  font-weight: 500;
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+/* Efeito underline animado ao passar o mouse pelos links */
+.link-menu::after {
+  content: '';
+  height: 2px;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: width 0.5s ease;
+}
+
+.link-menu:hover::after {
+  width: 100%;
+}
+
+/* Botão hamburguer escondido em telas grandes */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: var(--bright);
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+  position: absolute;
+  top: 0.1rem;
+  right: 0.5rem;
+}
+
+/* Menu em modo mobile (escondido por padrão) */
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.95);
+    display: none; /* Escondido por padrão no mobile */
+    text-align: center;
+    padding: 1rem 0;
+    gap: 2rem;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+/* Seção inicial do projeto com centralização vertical */
+.header {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Foto de perfil com leve efeito flutuante */
+.profile-photo {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+  border-radius: 50%;
+  border: 4px solid var(--glass);
+  animation: floating 3s ease-in-out infinite;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: var(--primary);
+  font-weight: bold;
+  margin: 20px;
+}
+
+.header-subtitle {
+  font-size: 1.5rem;
+  color: var(--bright)
+}
+
+/* Estilização da seção "Sobre mim" */
+.aboutme {
+  padding: 6rem 2rem;
+}
+
+.about-title {
+  font-size: 3rem;
+  color: var(--bright);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-box {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 16px;
+  border: 1px solid var(--glass);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.about-text {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Estilização da seção "Formação acadêmica" */
+.academic {
+  padding: 6rem 2rem;
+}
+
+.academic-title {
+  font-size: 3rem;
+  color: var(--bright);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.academic-box {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 16px;
+  border: 1px solid var(--glass);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.academic-text, .languages-text {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Estilização da seção "Portfólio", com responsividade aplicada, grade para projetos adaptável e efeito hover individual em cada projeto              */
+.portfolio {
+  padding: 6rem 2rem;
+
+}
+
+.portfolio-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+
+.portfolio-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--glass);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  box-shadow: 0 10px 20px rgba(79,70,229,0.2);
+  transform: translateY(-10px) scale(1.03);
+}
+
+.project-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.project-info {
+  margin-bottom: 5px;
+}
+
+.box-text-project {
+  padding: 1.5rem;
+}
+
+.project-text {
+  color: rgba(226,232,240,0.8);
+  line-height: 1.25rem;
+}
+
+/* Estilização da seção "Contato" com formulário e campos com visual personalizado */
+.contact {
+  padding: 6rem 2rem;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(5px);
+  padding: 2rem;
+  border: 1px solid var(--glass);
+  border-radius: 16px;
+}
+
+.form-field {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  color: var(--bright);
+  border: 1px solid var(--glass);
+  outline: none;
+  resize: vertical;
+}
+
+.form-field:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 10px rgba(79,70,229,0.3)
+} 
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-button {
+  color: var(--bright);
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  transition: all 0.5 ease;
+}
+
+.form-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 15px rgba(79,70,229,0.4);
+}
+
+/* Camada visual de fundo (efeito de partículas) */
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  background-color: var(--moreDark);
+  background-image: 
+    radial-gradient(circle at 10% 20%, var(--primary) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, var(--secondary) 0%, transparent 20%);
+}
+
+/* Animação de flutuação utilizada na foto de perfil */
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px)
+  }
+}
